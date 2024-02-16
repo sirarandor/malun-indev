@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d20ukqshkjwo1"]
+
+[node name="Sector" type="Node3D"]
+
+[node name="Map" type="GridMap" parent="."]
+
+[node name="Props" type="Node" parent="."]
+
+[node name="Living" type="Node" parent="."]
