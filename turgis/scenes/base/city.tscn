@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://bdt7nm0ox8fmp"]
+[gd_scene load_steps=2 format=3 uid="uid://bdt7nm0ox8fmp"]
+
+[ext_resource type="Script" path="res://scripts/base/city.gd" id="1_lpm28"]
 
 [node name="City" type="Node3D"]
+script = ExtResource("1_lpm28")

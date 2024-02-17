@@ -1,3 +1,48 @@
-[gd_scene format=3 uid="uid://7ox5a11tq6b5"]
+[gd_scene load_steps=9 format=3 uid="uid://cnb8uxh3x2167"]
 
-[node name="Player" type="Node3D"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_o50ay"]
+[ext_resource type="Script" path="res://scripts/player/follower.gd" id="2_b3ti5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38ybb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_icemt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_md4ky"]
+
+[sub_resource type="Sky" id="Sky_g2hep"]
+sky_material = SubResource("ProceduralSkyMaterial_md4ky")
+
+[sub_resource type="Environment" id="Environment_2vr46"]
+sky = SubResource("Sky_g2hep")
+ambient_light_source = 3
+
+[sub_resource type="Environment" id="Environment_iwmtp"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_o50ay")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_38ybb")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_icemt")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.657551)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 16.0
+spot_angle = 32.0
+
+[node name="Detatched" type="Node" parent="."]
+
+[node name="Follower" type="Node3D" parent="Detatched"]
+script = ExtResource("2_b3ti5")
+
+[node name="ThirdPerson" type="Camera3D" parent="Detatched/Follower"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 5, 2.5)
+environment = SubResource("Environment_2vr46")
+
+[node name="FirstPerson" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422722, -0.231298)
+environment = SubResource("Environment_iwmtp")
