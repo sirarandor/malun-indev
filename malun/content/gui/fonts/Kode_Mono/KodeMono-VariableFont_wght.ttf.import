@@ -14,11 +14,11 @@ dest_files=["res://.godot/imported/KodeMono-VariableFont_wght.ttf-428b327ed8fa32
 
 Rendering=null
 antialiasing=2
-generate_mipmaps=true
+generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
-allow_system_fallback=true
+allow_system_fallback=false
 force_autohinter=false
 hinting=2
 subpixel_positioning=0
