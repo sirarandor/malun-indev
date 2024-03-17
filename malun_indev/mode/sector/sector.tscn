@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2qyi6t882awd"]
+
+[ext_resource type="Script" path="res://mode/sector/res/sector.gd" id="1_42uqr"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_i5rtj"]
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="Sector" type="Node"]
+script = ExtResource("1_42uqr")
+
+[node name="NavReg" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_i5rtj")
+
+[node name="Map" type="TileMap" parent="NavReg"]
+format = 2
+
+[node name="Actors" type="Node" parent="."]
